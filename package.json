@@ -1,0 +1,21 @@
+{
+  "name": "estudo-back",
+  "version": "1.0.0",
+  "description": "calcular tempo de estudo",
+  "main": "index.js",
+  "repository": "https://github.com/moisesPompilio/Estudo-back.git",
+  "author": "moises",
+  "license": "MIT",
+  "scripts": {
+    "serve": "nodemon index.js"
+  },
+  "dependencies": {
+    "consign": "^0.1.6",
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
