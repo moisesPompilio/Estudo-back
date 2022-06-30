@@ -2,10 +2,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 //const knex = require("./src/database/config");
-const usuarioRoute = require('./src/routes/usuarioRoute');
 
 app.use(express.json());
+//Routas
+const usuarioRoute = require('./src/routes/usuarioRoute');
+const materiaRoute = require('./src/routes/materiaRoute');
 app.use(usuarioRoute);
+app.use(materiaRoute);
+
 app.use((req, res, next) => {
     const error = new Error("Not found");
     error.status = 404;
