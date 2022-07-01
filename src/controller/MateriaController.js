@@ -3,12 +3,12 @@ const MateriaModel = require('../model/MateriaModel')
 module.exports = {
     async index(req, res) {
         const { id } = await req.params;
-        const { usuario_id, titulo } = await req.query;
+        const { usuario_id, titulo, page = 1 } = await req.query;
         if (id) {
             const results = await knex("materia").where({ id });
             return res.json(results);
         } else if (usuario_id) {
-            if (titulo) {
+            if (titulo && titulo != "") {
                 const results = await knex("materia").where({ usuario_id, titulo });
                 return res.json(results)
             } else {

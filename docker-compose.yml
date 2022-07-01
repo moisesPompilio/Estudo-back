@@ -1,11 +1,19 @@
-version: '3'
+version: '3.9'
 
 services:
   estudo-back:
     build: 
       context: .
     ports:
-      - '8081:3000'
+      - '8082:3000'
+    networks:
+      - estudo-rede
+    restart: on-failure
+    command: bash -c "npm run knex && npm run start"
+    depends_on:
+      - mysql
+    links: 
+      - mysql
   mysql:
     image: mysql
     environment:
@@ -17,7 +25,13 @@ services:
     ports:
       - "3308:3306"
     command: --default-authentication-plugin=mysql_native_password
+    container_name: estudo-banco
+    networks:
+      - estudo-rede
 
 volumes:
   mysql:
     driver: local
+networks:
+  estudo-rede:
+    driver: bridge
