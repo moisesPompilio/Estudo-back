@@ -1,8 +1,8 @@
 exports.up = function (knex) {
-    return knex.schema.createTable('observacoes', function (table) {
+    return knex.schema.createTable('ponto', function (table) {
         table.increments('id').primary();
-        table.text('titulo').notNullable();
-        table.text('descricao').notNullable();
+        table.dateTime("data").notNullable();
+        table.boolean("saida").notNullable();
         table.integer('materia_id')
             .references("materia.id")
             .notNullable()
@@ -13,5 +13,5 @@ exports.up = function (knex) {
 
 
 exports.down = (knex) => {
-    knex.schema.dropTable("observacoes")
+    knex.schema.dropTable("ponto")
 };

@@ -8,6 +8,7 @@ module.exports = {
             const results = await knex("materia").where({ id });
             return res.json(results);
         } else if (usuario_id) {
+            console.log(titulo);
             if (titulo && titulo != "") {
                 const results = await knex("materia").where({ usuario_id, titulo });
                 return res.json(results)
@@ -23,8 +24,9 @@ module.exports = {
         try {
             const materia = await new MateriaModel(req.body);
             const verificarNome = await knex('materia').where({ usuario_id: materia.usuario_id, titulo: materia.titulo })
+            console.log(verificarNome)
             if (verificarNome[0]) {
-                res.status(205);
+                res.status(205).send(205);
             } else {
                 const insert = await knex('materia').insert(materia);
                 res.status(201).send(insert)
@@ -47,14 +49,18 @@ module.exports = {
             } else {
                 const materia = await new MateriaModel(req.body);
                 const verificarNome = await knex('materia').where({ usuario_id: materia.usuario_id, titulo: materia.titulo });
-                for (let verify of verificarNome) {
-                    console.log(verify.id);
-                    if (verify.id != id) {
-                        res.status(205);
+                console.log(verificarNome);
+                if (verificarNome[0]) {
+                    for (let verify of verificarNome) {
+                        console.log(verify.id);
+                        if (verify.id != id) {
+                            res.status(205).send(verificarNome);
+                        }
                     }
+                } else {
+                    await knex("materia").update(materia).where({ id: id });
+                    res.send("update sucess")
                 }
-                await knex("materia").update(materia).where({ id: id });
-                res.send("update sucess")
             }
 
         } catch (error) {

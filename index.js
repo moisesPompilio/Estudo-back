@@ -7,8 +7,12 @@ app.use(express.json());
 //Routas
 const usuarioRoute = require('./src/routes/usuarioRoute');
 const materiaRoute = require('./src/routes/materiaRoute');
+const observacoesRoute =  require('./src/routes/observacoesRoute');
+const pontoRoute = require('./src/routes/pontoRoute');
 app.use(usuarioRoute);
 app.use(materiaRoute);
+app.use(observacoesRoute);
+app.use(pontoRoute);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
