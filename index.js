@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 //const knex = require("./src/database/config");
 
+//Autenticacao
+require('dotenv').config();
+
 app.use(express.json());
 //Routas
 const usuarioRoute = require('./src/routes/usuarioRoute');
@@ -14,6 +17,7 @@ app.use(materiaRoute);
 app.use(observacoesRoute);
 app.use(pontoRoute);
 
+// trament de erro
 app.use((req, res, next) => {
     const error = new Error("Not found");
     error.status = 404;

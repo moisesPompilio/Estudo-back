@@ -27,6 +27,7 @@ module.exports = {
             else if (pontos.at(-1).saida == true) {
                 ponto = new PontoModel({ materia_id, saida: false })
             } else {
+                //
                 ponto = new PontoModel({ materia_id, saida: true })
                 const result = await knex('ponto').insert(ponto);
                 const saida_id = await result[0];

@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /mnt/c/Users/AGU/AppData/Roaming/npm/node_modules/yarn/bin/yarn.js add cosing
+  /usr/local/bin/node /mnt/c/Users/AGU/AppData/Roaming/npm/node_modules/yarn/bin/yarn.js add brcyptt
 
 PATH: 
-  /home/moises/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/remote-cli:/home/moises/.local/share/zinit/polaris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/PowerShell/7/:/mnt/c/src/flutter/bin:/mnt/c/Users/AGU/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/AGU/.dotnet/tools:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/AGU/Downloads/src/Microsoft VS Code/bin:/mnt/c/Users/AGU/Downloads/heroku/SAMIR/drivers:/mnt/c/Users/AGU/AppData/Roaming/npm:/mnt/c/Users/AGU/AppData/Local/atom/bin:/mnt/c/ProgramData/AGU/atom/bin:/mnt/c/Program Files (x86)/Inno Setup 6:/mnt/c/Program Files (x86)/WiX Toolset v3.11/bin:/mnt/c/Program Files/PostgreSQL/14/bin:/mnt/c/estudo/selenium teste
+  /home/moises/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/home/moises/.local/share/zinit/polaris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/PowerShell/7/:/mnt/c/src/flutter/bin:/mnt/c/Users/AGU/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/AGU/.dotnet/tools:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/AGU/Downloads/src/Microsoft VS Code/bin:/mnt/c/Users/AGU/Downloads/heroku/SAMIR/drivers:/mnt/c/Users/AGU/AppData/Roaming/npm:/mnt/c/Users/AGU/AppData/Local/atom/bin:/mnt/c/ProgramData/AGU/atom/bin:/mnt/c/Program Files (x86)/Inno Setup 6:/mnt/c/Program Files (x86)/WiX Toolset v3.11/bin:/mnt/c/Program Files/PostgreSQL/14/bin:/mnt/c/estudo/selenium teste
 
 Yarn version: 
   1.22.17
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/cosing: Not found
+  Error: https://registry.yarnpkg.com/brcyptt: Not found
       at Request.params.callback [as _callback] (/mnt/c/Users/AGU/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:67029:18)
       at Request.self.callback (/mnt/c/Users/AGU/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:140883:22)
       at Request.emit (node:events:527:28)
@@ -35,7 +35,11 @@ npm manifest:
     "repository": "https://github.com/moisesPompilio/Estudo-back.git",
     "author": "moises",
     "license": "MIT",
+    "scripts": {
+      "serve": "nodemon index.js"
+    },
     "dependencies": {
+      "consign": "^0.1.6",
       "express": "^4.18.1",
       "knex": "^2.1.0",
       "mysql2": "^2.3.3"
@@ -276,6 +280,11 @@ Lockfile:
       unique-string "^2.0.0"
       write-file-atomic "^3.0.0"
       xdg-basedir "^4.0.0"
+  
+  consign@^0.1.6:
+    version "0.1.6"
+    resolved "https://registry.yarnpkg.com/consign/-/consign-0.1.6.tgz#5a9b3a60ba5d362a514841b0c633e584486a72d7"
+    integrity sha512-Idlqa7N46rD6Odarx9qArbMpPrljc8DjV2DYH6uAFoOLITtuanhi2S/Z4LX4Jvg6+ef16Mjwwp5k5c5fMoOzIA==
   
   content-disposition@0.5.4:
     version "0.5.4"
