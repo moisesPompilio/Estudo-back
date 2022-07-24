@@ -12,16 +12,16 @@ module.exports = {
         try {
             const {name, email, senha, confirmacaoSenha} = await req.body
             if (!name || !email || !senha || !confirmacaoSenha){
-                return res.status(422).json({msg: "dados prenchidos icorretamente"})
+                return res.status(422).json({msg: "Incorrectly filled data"})
             }else if(senha != confirmacaoSenha){
-                return res.status(422).json({msg: "senhas diferentes"})
+                return res.status(422).json({msg: "Different passwords"})
             }
             const verifyName = await knex("usuario").where({name: name});
             const verifyEmail = await knex("usuario").where({email: email});
             if(verifyEmail[0]){
-                return res.status(422).json({msg: "Email ja cadastrado"})
+                return res.status(422).json({msg: "E-mail already registered"})
             }else if(verifyName[0]){
-                return res.status(422).json({msg: "Nome ja cadastrado"})
+                return res.status(422).json({msg: "Name already registered"})
             }
             const salt = await bcrypt.genSalt(12);
             const passwordHash = await aut.cripSenha(senha);
@@ -57,17 +57,16 @@ module.exports = {
     async login(req, res, next){
         try {
             const usuario = await new UsuarioModel(req.body);
-            const usuarioBanco = await knex("usuario").where({email: usuario.email});
+            const usuarioBanco = await knex("usuario").where({email: usuario.email})
             if(!usuarioBanco[0]){
-                return res.status(422).json({msg: "Usuario ainda nao cadastrado"})
+                return res.status(422).json({msg: "User is not registered"})
             }
             const checkSenha = await aut.checkSenha(usuario.senha, usuarioBanco[0].senha);
             if(!checkSenha){
-                return res.status(422).json({msg: "Senha incorreta"});
+                return res.status(422).json({msg: "Incorrect password"});
             }
-            const secret = process.env.SECRET;
             const token = await aut.token(usuarioBanco[0].id);
-            res.send({msg: 'usuario logado com sucesso', token})
+            res.send({msg: 'User logged in successfully', name: usuarioBanco[0].name, token})
             
         } catch (error) {
             next(error)
